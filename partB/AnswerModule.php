@@ -20,7 +20,7 @@ mysql_select_db("winestore",$connect) or die("Error selecting db");
 
 //checking for existence
 $query1="select distinct wine.wine_name,winery.winery_name,grape_variety.variety,region.region_name,
-             inventory.on_hand,inventory.cost,wine.year,sum(items.qty),sum(items.qty)*items.price
+             inventory.on_hand,inventory.cost,wine.year,sum(items.qty),sum(items.price)
          from wine,winery,grape_variety,region,wine_variety,inventory,items
          where wine.winery_id=winery.winery_id and wine.wine_id=inventory.wine_id 
          and region.region_id=winery.region_id and grape_variety.variety_id=wine_variety.variety_id and 
@@ -63,10 +63,10 @@ if($WinesQty!="")
 }
 
 //Add wines ordered criteria
-if($WinesOrdered!="")
+/*if($WinesOrdered!="")
 {
- $query1.="and items.qty>='{$WinesOrdered}'";
-}
+ $query1.="and sum(items.qty)>='{$WinesOrdered}'";
+}*/
 	
 //Add Min and Max cost criteria	  
 if($MinCost!="" && $MaxCost!="")
@@ -78,9 +78,16 @@ if($MinCost!="" && $MaxCost!="")
 //Add grouping and sorting criteria
  $query1.=" group by items.wine_id,wine.year";
 
+if($WinesQty!=0)
+{
+ $query1.=" having sum(items.qty)>=$Winesqty";
+
+}
+           $query1.=" order by wine.wine_name,wine.year";
+
 $result1=mysql_query($query1);
 $num_rows=mysql_num_rows($result1);
-echo $num_rows;
+//echo $num_rows;
 ?>
 <meta charset="utf-8">
 <title>Answer Of Search</title>
@@ -130,7 +137,7 @@ else
            $cost=$row['cost'];
           $quantity=$row['on_hand'];
           $stocksold=$row['sum(items.qty)'];
-          $SalesRevenue=$row['sum(items.qty)*items.price'];
+          $SalesRevenue=$row['sum(items.price)'];
     
 	   echo "<tr>";
 
