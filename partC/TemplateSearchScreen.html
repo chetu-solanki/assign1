@@ -1,0 +1,106 @@
+  <!doctype html>
+<html>
+<head>
+<title>Untitled Document</title>
+
+<h1><center><font color="#990000">Search Wine!</font></center></h1>
+</head>
+
+
+<body bgcolor="#339966">
+<!-- $BeginBlock Wine -->
+
+<form method="GET" name="Search_Wine" id="Search"   action="SearchScreenClass.php" >
+  <p>&nbsp;</p>
+  <table width="30%" border="1" align="center" cellpadding="5" cellspacing="5">
+    <tr>
+      <td width="45%">Wine name:</td>
+      <td width="55%"><input type="text" name="txtWineName" >
+      <font color='red'>${errWineName}
+</td>
+    </tr>
+    <tr>
+      <td>Winery name:</td>
+      <td><input type="text" name="txtWineryName">
+     <font color='red'> ${errWineryName}
+</td>
+    </tr>
+   
+
+    <tr>
+      <td>Region:</td>
+      <td>
+
+<select name="ddlRegionList">
+${optRegionValue}
+</select>
+
+</td>
+    </tr>
+<tr>
+      <td>Grape Variety:</td>
+<td>
+<select name="ddlVarietyList">
+<option value="Select">Select</option>
+${optVarietyValue}
+</select>
+
+</td>
+    </tr>
+
+ <tr>
+      <td>Range Of Years:</td>
+      <td>
+<select name="ddlMinYear">
+<option value="Select">Select</option>
+${optMinYearValue}
+</select>
+
+<select name="ddlMaxYear">
+<option value="Select">Select</option>
+${optMaxYearValue}
+</select>
+
+<font color='red'> ${errYear} 
+
+</td>
+    </tr>
+
+     <tr>
+      <td>Minimum no. of wines in stock:</td>
+    <td>
+       <input type="text" name="txtWinesStock">
+       <font color='red'> ${errWinesStock}
+</td>
+    </tr>
+    <tr>
+      <td>Minimum no. of wines ordered:</td>
+      <td>
+       <input type="text" name="txtWinesOrdered">
+<font color='red'> ${errWinesOrdered}
+</td>
+    </tr>
+    
+    <tr>
+      <td>Dollar Cost Range:</td>
+      <td>Min.<input type="text" name="txtMinCostRange">
+Max.<input type="text" name="txtMaxCostRange"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="search_wine" id="submit" value="Search">
+<font color='red'> ${errCost}
+<font color='red'> ${errMinCost}
+<font color='red'> ${errMaxCost}
+
+</td>
+    </tr>
+
+
+</table>
+</form>
+<!-- $EndBlock Wine -->
+
+</body>
+
+
+</html>

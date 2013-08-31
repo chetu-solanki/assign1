@@ -1,0 +1,68 @@
+ <!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>Answer Of Search</title>
+<h1><center><font color="#990000">Result:</font></center></h1>
+</head>
+
+<body bgcolor="#339966">
+<!-- $BeginBlock Answer -->
+
+<h1><center>${Records}
+
+
+  <table width="98%" border="1" align="center" cellpadding="5" cellspacing="5">
+
+
+    <tr>
+      <th>Wine name:</th>
+       <th>Winery name:</th>
+       <th>Grape Variety:</th>
+       <th> Region:</th>
+       <th> Year:</th>
+        <th>Cost Of Wine In the Inventory</th>
+       <th>Total no.of bottles available:</th>
+       
+ <th>Total stock sold:</th>
+          <th>Total Sales Revenue: </th>
+   
+  
+<!-- $BeginBlock data -->
+<tr>   
+<td>      ${winename}</td>
+      
+     <td> ${wineryname}</td>
+
+	  
+     <td>${grapevariety}</td>
+
+
+      <td>${region}</td>
+
+    <td> ${year}</td>
+    
+    <td> ${cost}</td>
+     
+  
+     <td> ${quantity}</td>
+  
+  
+     <td> ${stocksold}</td>
+  
+      <td> ${SalesRevenue}</td>
+</tr>
+<!-- $EndBlock data -->
+       
+ </table>
+
+<!-- $EndBlock Answer -->
+
+
+</body>
+
+
+
+</html>
+
